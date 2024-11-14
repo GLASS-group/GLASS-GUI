@@ -1,0 +1,238 @@
+
+
+Version:	3.50
+CmdLine:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	1.007.000
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\apache-maven-3.9.9\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_012 / 64-Bit (OK)
+Heap -Xms:	Requested 100 MB / 0%, Available: 588 MB, Heap size: 100 MB
+Heap -Xmx:	Requested 100 MB / 0%, Available: 588 MB, Heap size: 100 MB
+Main class:	com.glass.project.Main
+Info:		Classpath not defined.
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-Xms100m -Xmx100m -classpath "C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe" com.glass.project.Main
+Args length:	112/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	1.007.000
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\apache-maven-3.9.9\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_012 / 64-Bit (OK)
+Heap -Xms:	Requested 100 MB / 0%, Available: 1011 MB, Heap size: 100 MB
+Heap -Xmx:	Requested 100 MB / 0%, Available: 1011 MB, Heap size: 100 MB
+Main class:	com.glass.project.Main
+Info:		Classpath not defined.
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-Xms100m -Xmx100m -classpath "C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe" com.glass.project.Main
+Args length:	112/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	1.007.000
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\apache-maven-3.9.9\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_012 / 64-Bit (OK)
+Heap -Xms:	Requested 100 MB / 0%, Available: 932 MB, Heap size: 100 MB
+Heap -Xmx:	Requested 100 MB / 0%, Available: 932 MB, Heap size: 100 MB
+Main class:	com.glass.project.Main
+Info:		Classpath not defined.
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-Xms100m -Xmx100m -classpath "C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe" com.glass.project.Main
+Args length:	112/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	1.007.000
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\apache-maven-3.9.9\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_012 / 64-Bit (OK)
+Heap -Xms:	Requested 100 MB / 0%, Available: 499 MB, Heap size: 100 MB
+Heap -Xmx:	Requested 100 MB / 0%, Available: 499 MB, Heap size: 100 MB
+Main class:	com.glass.project.Main
+Info:		Classpath not defined.
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-Xms100m -Xmx100m -classpath "C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe" com.glass.project.Main
+Args length:	112/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	1.007.000
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\apache-maven-3.9.9\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_012 / 64-Bit (OK)
+Heap -Xms:	Requested 100 MB / 0%, Available: 758 MB, Heap size: 100 MB
+Heap -Xmx:	Requested 100 MB / 0%, Available: 758 MB, Heap size: 100 MB
+Main class:	com.glass.project.Main
+Info:		Classpath not defined.
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-Xms100m -Xmx100m -classpath "C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe" com.glass.project.Main
+Args length:	112/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	1.007.000
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\apache-maven-3.9.9\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_012 / 64-Bit (OK)
+Heap -Xms:	Requested 100 MB / 0%, Available: 917 MB, Heap size: 100 MB
+Heap -Xmx:	Requested 100 MB / 0%, Available: 917 MB, Heap size: 100 MB
+Main class:	com.glass.project.Main
+Info:		Classpath not defined.
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-Xms100m -Xmx100m -classpath "C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe" com.glass.project.Main
+Args length:	112/32768 chars
+Exit code:	0
+
+
+Version:	3.50
+CmdLine:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe --l4j-debug
+JNI:		No
+WOW64:		Yes
+Working dir:	C:\Users\xande\Programming\GLASS\GLASS-GUI\target\.
+Requires JDK:	No
+Requires 64-Bit: No
+Java min ver:	1.007.000
+Java max ver:	
+Substitute:	JAVA_HOME = 
+Substitute:	PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+JRE paths:	;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\xande\AppData\Local\Microsoft\WindowsApps;C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\apache-maven-3.9.9\bin;;C:\Program Files\Java\jdk-17\bin
+Check launcher:	C:\Program Files\Common Files\Oracle\Java\javapath\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\system32\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\Wbem\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\WindowsPowerShell\v1.0\bin\javaw.exe (not found)
+Check launcher:	C:\Windows\System32\OpenSSH\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Git\cmd\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Microsoft\WindowsApps\bin\javaw.exe (not found)
+Check launcher:	C:\Users\xande\AppData\Local\Programs\Microsoft VS Code\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\apache-maven-3.9.9\bin\javaw.exe (not found)
+Check launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe (OK)
+Version string: 1.017.000_012 / 64-Bit (OK)
+Heap -Xms:	Requested 100 MB / 0%, Available: 831 MB, Heap size: 100 MB
+Heap -Xmx:	Requested 100 MB / 0%, Available: 831 MB, Heap size: 100 MB
+Main class:	com.glass.project.Main
+Info:		Classpath not defined.
+Launcher:	C:\Program Files\Java\jdk-17\bin\javaw.exe
+Launcher args:	-Xms100m -Xmx100m -classpath "C:\Users\xande\Programming\GLASS\GLASS-GUI\target\test.exe" com.glass.project.Main
+Args length:	112/32768 chars
+Exit code:	0

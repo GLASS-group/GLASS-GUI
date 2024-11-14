@@ -7,22 +7,26 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import com.glass.project.api.API;
+import com.glass.project.api.LanguageParser;
+import com.glass.project.lr1.ParserNode;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Paths;
-
 
 
 public class Main {
@@ -36,19 +40,18 @@ public class Main {
     public static Screen state;
     public static HashSet<String> nonTerminalList = new HashSet<String>();
     public static HashSet<Terminal> terminalList = new HashSet<Terminal>(); 
+    public static HashMap<String, Production> prodMap = new HashMap<>();
     public static HashSet<String> terminalStringList = new HashSet<String>();
-    public static List<Production> productionList = new ArrayList<Production>();
     public static JTextArea productionTreeWindow = new JTextArea("");
     public static List<JComboBox> rightSideList = new ArrayList<JComboBox>();
-    public static ImageIcon originalIcon = new ImageIcon(Paths.get("").toAbsolutePath() + "/glass-gui/src/main/java/com/glass/project/glass-logo.png");
-    public static Image scaledImage = originalIcon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH); // Increase size slightly
+    public static ImageIcon originalIcon = new ImageIcon(Main.class.getResource("glass-logo.png"));
+    public static Image scaledImage = originalIcon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
     public static ImageIcon glassIcon = new ImageIcon(scaledImage);
 
 
     public static void main(String[] args) {
         loadMainWindow();
-        System.out.println(Paths.get("").toAbsolutePath());
-        mainFrame.setSize(500, 500);
+        mainFrame.setSize(1000, 1000);
         mainFrame.setIconImage(originalIcon.getImage());
         state = Screen.MAIN;
         mainFrame.setVisible(true);
@@ -91,6 +94,9 @@ public class Main {
     JTextArea parseTreeArea = new JTextArea();
     parseTreeArea.setBackground(Color.BLACK);
     parseTreeArea.setForeground(Color.WHITE);
+    JScrollPane scrollPane = new JScrollPane(parseTreeArea);
+    scrollPane.setBackground(Color.BLACK);
+    scrollPane.setForeground(Color.WHITE);
     topPanel.setBackground(Color.BLACK);
     JPanel mainButtonPanel = new JPanel(new GridLayout(3, 1));
     mainButtonPanel.setBackground(Color.BLACK);
@@ -132,18 +138,15 @@ public class Main {
 
     JPanel macroPanel = new JPanel(new GridLayout(1, 3)); 
     macroPanel.setBackground(Color.BLACK);
-    JLabel macroLabel = new JLabel("Enter Macro File Path");
+    JLabel macroLabel = new JLabel("Enter Script File Path");
     macroLabel.setBackground(Color.BLACK);
     macroLabel.setForeground(Color.WHITE);
     JTextField macroField = new JTextField();
     macroField.setBackground(Color.BLACK);
     macroField.setForeground(Color.WHITE);
-    JButton macroButton = new JButton("Select Macro File");
+    JButton macroButton = new JButton("Select Script File");
     macroButton.setBackground(Color.BLACK);
     macroButton.setForeground(Color.WHITE);
-    JTextField outputTextField = new JTextField();
-    outputTextField.setBackground(Color.BLACK);
-    outputTextField.setForeground(Color.WHITE);
     JButton submitButton = new JButton("Submit");
     submitButton.setBackground(Color.BLACK);
     submitButton.setForeground(Color.WHITE);
@@ -163,40 +166,40 @@ public class Main {
     mainButtonPanel.add(submitButton);
     mainButtonPanel.add(backButton);
     topPanel.add(mainButtonPanel);
-    topPanel.add(outputTextField);
+    topPanel.add(scrollPane);
     mainFrame.add(topPanel);
     mainFrame.revalidate();
     mainFrame.repaint();
 }
 
 public static void execute(JTextField inputField, JTextField grammarField, JTextField macroField, JTextArea outputField) {
-    if ((inputField.getText() != "") && (grammarField.getText() != "")) {
+    if ((!inputField.getText().equals("")) && (!grammarField.getText().equals(""))) {
         String inputPath = inputField.getText();
         String grammarPath = grammarField.getText();
         LanguageParser grammarParser = null;
         ParserNode rootNode = null;
         try {
-            grammarParser = API.buildParserFromFile(grammarPath);
+            grammarParser = API.buildParserFromPath(grammarPath);
         } catch (IOException e) {
             outputField.setText("Invalid Path: " + grammarPath);
         }
 
         if (grammarParser != null) {
             try {
-                rootNode = API.parseFile(inputPath, grammarParser);
-                if (macroField.getText() == "") {
-                    outputField.setText(writeParseTree(rootNode));
-                } else {
-                    String macroPath = macroField.getText();
-                    try {
-                        ParserNode macroRootNode = API.applyMacroFromPath(rootNode, macroPath);
-                        outputField.setText(writeParseTree(macroRootNode));
-                    } catch (IOException e) {
-                        outputField.setText("Invalid Path: " + macroPath);
-                    }
-                }
+                rootNode = API.parseFromPath(inputPath, grammarParser);
             } catch (IOException e) {
-                outputField.setText("Invalid Path: " + inputPath);
+               outputField.setText("Invalid Path: " + inputPath);
+            }
+            if (macroField.getText().equals("")) {
+                outputField.setText(writeParseTree(rootNode));
+            } else {
+                String macroPath = macroField.getText();
+                try {
+                    API.applyScriptFromPath(macroPath, rootNode);
+                    outputField.setText(writeParseTree(rootNode));
+                } catch (IOException e) {
+                    outputField.setText("Invalid Path: " + macroPath);
+                }
             }
         }
     }
@@ -237,6 +240,35 @@ public static void saveFile(JTextArea grammar) {
     }
 }
 
+public static void deleteProduction() {
+    JFrame deleteProductionFrame = new JFrame("Delete Production");
+    JComboBox deleteProductionComboBox = createProductionBox();
+    JPanel mainPanel = new JPanel(new GridLayout(2, 1));
+    JButton deleteProductionButton = new JButton("Delete");
+    JButton backButton = new JButton("Back");
+    backButton.setBackground(Color.BLACK);
+    backButton.setForeground(Color.WHITE);
+    deleteProductionButton.setBackground(Color.BLACK);
+    deleteProductionButton.setForeground(Color.WHITE);
+    deleteProductionButton.addActionListener(e -> deleteProductionButtonAction(deleteProductionComboBox, deleteProductionFrame));
+    backButton.addActionListener(e -> closeWindow(deleteProductionFrame));
+    mainPanel.add(deleteProductionComboBox);
+    JPanel lowerButtonPanel = new JPanel(new GridLayout(1, 2));
+    lowerButtonPanel.add(deleteProductionButton);
+    lowerButtonPanel.add(backButton);
+    mainPanel.add(lowerButtonPanel);
+    deleteProductionFrame.add(mainPanel);
+    deleteProductionFrame.setIconImage(originalIcon.getImage());
+    deleteProductionFrame.setSize(1000, 1000);
+    deleteProductionFrame.setVisible(true);
+}
+
+public static void deleteProductionButtonAction(JComboBox box, JFrame frame) {
+    prodMap.remove(box.getSelectedItem());
+    writeProductionTree();
+    closeWindow(frame);
+}
+
 public static void loadGrammarWindow() {
     JPanel topPanel = new JPanel(new GridLayout(2, 1));
     JPanel lowerButtonPanel = new JPanel(new GridLayout(1, 2));
@@ -255,6 +287,11 @@ public static void loadGrammarWindow() {
     createProductionButton.setForeground(Color.WHITE);
     createProductionButton.addActionListener(e -> createProduction());
 
+    JButton deleteProductionButton = new JButton("Delete Production");
+    deleteProductionButton.setBackground(Color.BLACK);
+    deleteProductionButton.setForeground(Color.WHITE);
+    deleteProductionButton.addActionListener(e -> deleteProduction());
+
     JButton createNonTerminalButton = new JButton("Create Non Terminal");
     createNonTerminalButton.setBackground(Color.BLACK);
     createNonTerminalButton.setForeground(Color.WHITE);
@@ -265,11 +302,12 @@ public static void loadGrammarWindow() {
     createTerminalButton.setForeground(Color.WHITE);
     createTerminalButton.addActionListener(e -> createTerminal());
 
-    JPanel grammarButtonPanel = new JPanel(new GridLayout(3, 1));
+    JPanel grammarButtonPanel = new JPanel(new GridLayout(4, 1));
     grammarButtonPanel.setBackground(Color.BLACK);
     grammarButtonPanel.add(createNonTerminalButton);
     grammarButtonPanel.add(createTerminalButton);
     grammarButtonPanel.add(createProductionButton);
+    grammarButtonPanel.add(deleteProductionButton);
 
     topGrammarPanel.add(grammarButtonPanel);
 
@@ -343,7 +381,7 @@ public static void loadGrammarWindow() {
         mainPanel.add(lowerButtonPanel);
     
         createTerminalFormFrame.add(mainPanel);
-        createTerminalFormFrame.setSize(500, 500);
+        createTerminalFormFrame.setSize(1000, 1000);
         createTerminalFormFrame.getContentPane().setBackground(Color.BLACK);  // Set frame background to black
         createTerminalFormFrame.setVisible(true);
     }
@@ -381,7 +419,8 @@ public static void loadGrammarWindow() {
             }
         }
 
-        productionList.add(new Production(leftSide, rightSideListStr));
+        Production prod = new Production(leftSide, rightSideListStr);
+        prodMap.put(prod.toString(), prod);
         writeProductionTree();
         rightSideList = new ArrayList<JComboBox>();
         closeWindow(formFrame);
@@ -427,7 +466,7 @@ public static void loadGrammarWindow() {
         mainPanel.add(lowerButtonPanel);
     
         createNonTerminalFormFrame.add(mainPanel);
-        createNonTerminalFormFrame.setSize(500, 500);
+        createNonTerminalFormFrame.setSize(1000, 1000);
         createNonTerminalFormFrame.getContentPane().setBackground(Color.BLACK);  // Set frame background to black
         createNonTerminalFormFrame.setVisible(true);
     }
@@ -491,7 +530,7 @@ public static void loadGrammarWindow() {
     submitButton.addActionListener(e -> addToProductionList((String) leftSideDropDownBox.getSelectedItem(), createProductionFormFrame));
     
     createProductionFormFrame.add(mainPanel);
-    createProductionFormFrame.setSize(500, 500);
+    createProductionFormFrame.setSize(1000, 1000);
     createProductionFormFrame.getContentPane().setBackground(Color.BLACK);
     createProductionFormFrame.setVisible(true);
 }
@@ -499,7 +538,7 @@ public static void loadGrammarWindow() {
 
     public static void writeProductionTree() {
         StringBuilder result = new StringBuilder();
-        for (Production prod: productionList) {
+        for (Production prod: prodMap.values()) {
             result.append(String.format("   %s.", prod));
             result.append("\n");
         }
@@ -525,6 +564,16 @@ public static void loadGrammarWindow() {
             box.addItem(symbol);
         }
         rightSideList.add(box);
+        return box;
+    }
+
+    public static JComboBox createProductionBox() {
+        JComboBox box = new JComboBox<String>();
+        box.setBackground(Color.BLACK);
+        box.setForeground(Color.WHITE);
+        for (Production prod: prodMap.values()) {
+            box.addItem(prod.toString());
+        }
         return box;
     }
 
