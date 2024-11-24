@@ -20,6 +20,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDropEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -40,13 +44,14 @@ public class Main {
     public static Screen state;
     public static HashSet<String> nonTerminalList = new HashSet<String>();
     public static HashSet<Terminal> terminalList = new HashSet<Terminal>(); 
-    public static HashMap<String, Production> prodMap = new HashMap<>();
+    public static List<Production> productionList = new ArrayList<>();
     public static HashSet<String> terminalStringList = new HashSet<String>();
     public static JTextArea productionTreeWindow = new JTextArea("");
     public static List<JComboBox> rightSideList = new ArrayList<JComboBox>();
     public static ImageIcon originalIcon = new ImageIcon(Main.class.getResource("glass-logo.png"));
     public static Image scaledImage = originalIcon.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
     public static ImageIcon glassIcon = new ImageIcon(scaledImage);
+    public static JFileChooser fileChooser = new JFileChooser();
 
 
     public static void main(String[] args) {
@@ -105,13 +110,11 @@ public class Main {
 
     JPanel inputPanel = new JPanel(new GridLayout(1, 3)); 
     inputPanel.setBackground(Color.BLACK);
-    JLabel inputLabel = new JLabel("Enter Input File Path");
+    JLabel inputLabel = new JLabel("Enter Source File Path");
     inputLabel.setBackground(Color.BLACK);
     inputLabel.setForeground(Color.WHITE);
-    JTextField inputField = new JTextField();
-    inputField.setBackground(Color.BLACK);
-    inputField.setForeground(Color.WHITE);
-    JButton inputButton = new JButton("Select Input File");
+    JTextField inputField = getFileField();
+    JButton inputButton = new JButton("Select Source File");
     inputButton.setBackground(Color.BLACK);
     inputButton.setForeground(Color.WHITE);
     inputButton.addActionListener(e -> chooseFile(inputField));
@@ -122,13 +125,11 @@ public class Main {
     JPanel grammarPanel = new JPanel(new GridLayout(1, 3)); 
     grammarPanel.setBackground(Color.BLACK);
     grammarPanel.setForeground(Color.WHITE);
-    JLabel grammarLabel = new JLabel("Enter Grammar File Path");
+    JLabel grammarLabel = new JLabel("Enter Syntax Definition File Path");
     grammarLabel.setBackground(Color.BLACK);
     grammarLabel.setForeground(Color.WHITE);
-    JTextField grammarField = new JTextField();
-    grammarField.setBackground(Color.BLACK);
-    grammarField.setForeground(Color.WHITE);
-    JButton grammarButton = new JButton("Select Grammar File");
+    JTextField grammarField = getFileField();
+    JButton grammarButton = new JButton("Select Syntax Definition File");
     grammarButton.setBackground(Color.BLACK);
     grammarButton.setForeground(Color.WHITE);
     grammarButton.addActionListener(e -> chooseFile(grammarField));
@@ -141,9 +142,7 @@ public class Main {
     JLabel macroLabel = new JLabel("Enter Script File Path");
     macroLabel.setBackground(Color.BLACK);
     macroLabel.setForeground(Color.WHITE);
-    JTextField macroField = new JTextField();
-    macroField.setBackground(Color.BLACK);
-    macroField.setForeground(Color.WHITE);
+    JTextField macroField = getFileField();
     JButton macroButton = new JButton("Select Script File");
     macroButton.setBackground(Color.BLACK);
     macroButton.setForeground(Color.WHITE);
@@ -170,6 +169,29 @@ public class Main {
     mainFrame.add(topPanel);
     mainFrame.revalidate();
     mainFrame.repaint();
+}
+
+public static JTextField getFileField() {
+    JTextField inputField = new JTextField();
+    inputField.setDropTarget(new DropTarget() {
+        public synchronized void drop(DropTargetDropEvent evt) {
+            try {
+                evt.acceptDrop(DnDConstants.ACTION_COPY);
+                List<File> droppedFiles = (List<File>)
+                    evt.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+                for (File file : droppedFiles) {
+                    inputField.setText(file.getAbsolutePath());
+                    break;
+                }
+                evt.dropComplete(true);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    });
+    inputField.setBackground(Color.BLACK);
+    inputField.setForeground(Color.WHITE);
+    return inputField;
 }
 
 public static void execute(JTextField inputField, JTextField grammarField, JTextField macroField, JTextArea outputField) {
@@ -210,7 +232,6 @@ public static String writeParseTree(ParserNode rootNode) {
 }
 
 public static void chooseFile(JTextField textField) {
-    JFileChooser fileChooser = new JFileChooser();
     int result = fileChooser.showOpenDialog(null);
     if (result == JFileChooser.APPROVE_OPTION) {
         File selectedFile = fileChooser.getSelectedFile();
@@ -264,7 +285,14 @@ public static void deleteProduction() {
 }
 
 public static void deleteProductionButtonAction(JComboBox box, JFrame frame) {
-    prodMap.remove(box.getSelectedItem());
+    for (int i = 0; i < productionList.size(); i++) {
+        String item = (String) box.getSelectedItem();
+        String item2 = productionList.get(i).toString();
+        if (item.equals(item2)) {
+            productionList.remove(i);
+            break;
+        }
+    }
     writeProductionTree();
     closeWindow(frame);
 }
@@ -297,7 +325,7 @@ public static void loadGrammarWindow() {
     createNonTerminalButton.setForeground(Color.WHITE);
     createNonTerminalButton.addActionListener(e -> createNonTerminal());
 
-    JButton createTerminalButton = new JButton("Create Terminal");
+    JButton createTerminalButton = new JButton("Create Token");
     createTerminalButton.setBackground(Color.BLACK);
     createTerminalButton.setForeground(Color.WHITE);
     createTerminalButton.addActionListener(e -> createTerminal());
@@ -333,7 +361,7 @@ public static void loadGrammarWindow() {
 }
 
     public static void createTerminal() {
-        JFrame createTerminalFormFrame = new JFrame("Create Terminal");
+        JFrame createTerminalFormFrame = new JFrame("Create Token");
         createTerminalFormFrame.setIconImage(originalIcon.getImage());
     
         JPanel mainPanel = new JPanel(new GridLayout(2, 1));
@@ -420,7 +448,7 @@ public static void loadGrammarWindow() {
         }
 
         Production prod = new Production(leftSide, rightSideListStr);
-        prodMap.put(prod.toString(), prod);
+        productionList.add(prod);
         writeProductionTree();
         rightSideList = new ArrayList<JComboBox>();
         closeWindow(formFrame);
@@ -538,7 +566,7 @@ public static void loadGrammarWindow() {
 
     public static void writeProductionTree() {
         StringBuilder result = new StringBuilder();
-        for (Production prod: prodMap.values()) {
+        for (Production prod: productionList) {
             result.append(String.format("   %s.", prod));
             result.append("\n");
         }
@@ -571,7 +599,7 @@ public static void loadGrammarWindow() {
         JComboBox box = new JComboBox<String>();
         box.setBackground(Color.BLACK);
         box.setForeground(Color.WHITE);
-        for (Production prod: prodMap.values()) {
+        for (Production prod: productionList) {
             box.addItem(prod.toString());
         }
         return box;

@@ -5,7 +5,7 @@
 
   <groupId>com.glass.project</groupId>
   <artifactId>GLASS-GUI</artifactId>
-  <version>0.2.0a</version>
+  <version>0.2.1a</version>
 
   <name>glass-gui</name>
   <url>https://glass-project.com/home</url>
@@ -37,7 +37,7 @@
     <dependency>
         <groupId>com.glass.project</groupId>
         <artifactId>GLASS</artifactId>
-        <version>0.1.0a</version>
+        <version>0.2.1a</version>
     </dependency>
     <!-- Optionally: parameterized tests support -->
     <dependency>
